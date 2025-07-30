@@ -1,4 +1,4 @@
-﻿@using WebMieow.Models
+@using WebMieow.Models
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 <!DOCTYPE html>
@@ -145,6 +145,29 @@
     <script src="~/vendor/php-email-form/validate.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileToggle = document.querySelector('.mobile-nav-toggle');
+            const navbar = document.querySelector('#navbar');
+
+            mobileToggle.addEventListener('click', function () {
+                navbar.classList.toggle('navbar-mobile');
+                this.classList.toggle('bi-list');
+                this.classList.toggle('bi-x');
+            });
+
+            // Optional: close when clicking a nav link (mobile)
+            document.querySelectorAll('#navbar .nav-link').forEach(function (el) {
+                el.addEventListener('click', function () {
+                    if (navbar.classList.contains('navbar-mobile')) {
+                        navbar.classList.remove('navbar-mobile');
+                        mobileToggle.classList.toggle('bi-list');
+                        mobileToggle.classList.toggle('bi-x');
+                    }
+                });
+            });
+        });
+    </script>
 
     <!-- Main JS -->
     <script src="~/js/main.js"></script>
