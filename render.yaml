@@ -9,10 +9,12 @@ services:
       - key: ConnectionStrings__DefaultConnection
         value: Server=mysql-db:3306;Database=webmieowdb;User=root;Password=Gtw3gpHa8cBAiGia;
 
-  - type: image
+  - type: pserv
     name: mysql-db
-    image: mysql:8.0
-    plan: starter
+    env: docker
+    dockerfilePath: ""
+    image:
+      name: mysql:8.0
     envVars:
       - key: MYSQL_ROOT_PASSWORD
         value: Gtw3gpHa8cBAiGia
