@@ -8,8 +8,9 @@ services:
     dependsOn:
       - mysql-db
     envVars:
-      - key: ConnectionStrings__DefaultConnection
-        value: "server=containers-us-west-5.railway.app;port=12345;database=railway;user=root;password=dzwizjmCOvrsOvBPyNQMIlFvVtcIitHQ;"
+  - key: ConnectionStrings__DefaultConnection
+    value: "server=turntable.proxy.rlwy.net;port=48832;database=railway;user=root;password=dzwizjmCOvrsOvBPyNQMIlFvVtcIitHQ;"
+
 
 
   - type: pserv
