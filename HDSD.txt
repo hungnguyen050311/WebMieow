@@ -1,0 +1,85 @@
+✅ 2. Trên máy khác (hoặc ổ khác)
+A. Yêu cầu cài đặt:
+.NET 8 SDK
+
+Docker Desktop
+
+(Tùy chọn): Visual Studio hoặc Visual Studio Code
+
+B. Các bước chạy WebMieow:
+📂 1. Giải nén hoặc clone project vào máy
+⚙️ 2. Mở Terminal/Powershell trong thư mục gốc project < D:\ASP.Net\WebMieow > trong chỗ đường dẫn máy chính đây 
+🐳 3. Chạy Docker Compose <chỗ có file docker-compose.yml> để khởi động MySQL container
+
+docker compose up -d <lệnh này để run docker trước để kết nối localhost >
+✅ Docker sẽ tạo lại container MySQL (với volume chứa data), cổng 3306, phpMyAdmin (port 8080).
+
+⚒️ 4. Chạy EF migration để tạo DB (nếu chưa có)
+dotnet ef database update
+Nếu máy kia chưa có DB webmieowdb, câu lệnh này sẽ tạo database và bảng.
+
+▶️ 5. Chạy ứng dụng
+dotnet run
+Mở trình duyệt truy cập http://localhost:8081/ <bên máy chủ chính người làm web là 8081, còn máy khác 8080 hoặc khác nữa > với xxxxx là port hiển thị sau khi chạy.
+
+⚠️ Lưu ý thêm
+Không nên hardcode ổ đĩa trong file .csproj, .sln, hay docker volume. Hãy dùng relative path.
+
+Nếu lỗi EF trên máy khác: đảm bảo có cài EntityFramework tools
+dotnet tool install --global dotnet-ef <mở cmd trong vs khi mở src hoặc trong chỗ chứa file prj chạy cmd ghi lệnh này đẻe cài>
+
+==========================================
+DS lệnh cần thiết khi chạy web có Docker
+==========================================
+
+🐳 Docker – Khởi chạy và quản lý container
+Khởi động Docker (chạy project):
+docker compose up -d
+Chạy toàn bộ dịch vụ (MySQL + WebApp) ở chế độ nền.
+
+Tắt Docker:
+docker compose down
+Dừng tất cả container và gỡ bỏ mạng tạm thời (không xóa dữ liệu volume).
+
+Xem log container:
+docker compose logs -f
+Theo dõi log thời gian thực của các container.
+
+🛠 Entity Framework Core – Migration & Database
+Tạo migration mới:
+dotnet ef migrations add TenMigration
+Tạo file migration để cập nhật thay đổi DB từ model.
+
+Cập nhật cơ sở dữ liệu:
+dotnet ef database update
+Áp dụng migration vào DB thật (trong Docker).
+
+Xóa migration gần nhất:
+dotnet ef migrations remove
+Xóa migration mới tạo (nếu lỡ sai).
+
+🧹 Quản lý database thủ công
+Xóa hẳn database thủ công (qua phpMyAdmin hoặc MySQL CLI):
+DROP DATABASE webmieowdb;
+Chỉ làm khi bạn chắc chắn muốn reset toàn bộ database.
+
+Tạo lại thủ công (nếu cần):
+CREATE DATABASE webmieowdb;
+Nếu muốn chủ động tạo lại trước khi update.
+
+🧪 Kiểm tra migration hiện tại
+Xem danh sách migration đã áp dụng:
+dotnet ef migrations list
+
+
+Kiểm tra database đã update chưa:
+dotnet ef database update --verbose
+In chi tiết quá trình cập nhật.
+
+==========================================
+==========================================
+
+
+Trình bày HDSD, nếu không lèm đựt thì chatgpt hỗ trợ ạ :>>
+
+edit by Mieow NGuyễn Lâm Hùng

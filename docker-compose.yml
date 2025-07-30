@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Gtw3gpHa8cBAl6ia
+      MYSQL_DATABASE: webmieowdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - mieownet
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=mysql;Port=3306;Database=webmieowdb;User=root;Password=Gtw3gpHa8cBAl6ia
+    networks:
+      - mieownet
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    depends_on:
+      - mysql
+    networks:
+      - mieownet
+
+volumes:
+  mysql_data:
+
+networks:
+  mieownet:

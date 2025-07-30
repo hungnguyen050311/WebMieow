@@ -1,0 +1,188 @@
+﻿@model WebMieow.Models.PaymentViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+    ViewData["Title"] = "Thanh Toán";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>MieowShop - Thanh Toán Đơn Hàng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .box {
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+            width: 420px;
+        }
+
+            .box h3 {
+                margin-bottom: 20px;
+                font-size: 18px;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 8px;
+            }
+
+        .info p {
+            margin: 8px 0;
+        }
+
+        .info strong {
+            color: #000;
+        }
+
+        .info .highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        .qr img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+
+            .note a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .note a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Thông tin đơn hàng -->
+        <div class="box">
+            <h3>Thông tin đơn hàng</h3>
+            <div class="info">
+                <p>Email/SDT: <strong>@Model.Email</strong></p>
+                <p>Gói mua: <strong>@Model.Plan</strong></p>
+                <p>Số tiền: <strong>@Model.Amount.ToString("N0") đ</strong></p>
+                <p>Nội dung CK: <strong class="highlight ck">@Model.Code</strong></p>
+                <p>Đơn hàng hết hạn sau: <strong class="highlight" id="timer">10:00</strong></p>
+                <p>Lưu ý: nếu giao dịch ghi sai nội dung chuyển khoản nhưng đúng Email/SDT, hãy liên hệ admin hỗ trợ.</p>
+                <p>Khi chuyển khoản thành công, bấm vào Tôi đã chuyển khoản, rồi vào profile xem mã nhé.</p>
+            </div>
+
+            <button id="btnCheck">Tôi đã chuyển khoản</button>
+            <input type="hidden" id="contactInput" value="@Model.Email" />
+            <span id="orderCode" style="display:none;">@Model.Code</span>
+            <div id="cardCode" style="margin-top:20px;"></div>
+        </div>
+
+        <!-- QR -->
+        <div class="box qr">
+            <h3>Quét mã QR để thanh toán</h3>
+            <img src="~/img/pay.jpg" alt="QR VietQR MBBank" />
+            <p style="text-align:center; font-size: 13px; color:#555">Dùng app MB Bank, Momo, ZaloPay, VCB, TPBank...</p>
+        </div>
+    </div>
+
+    <div class="note">
+        Nếu quá 5 phút không nhận được mã, vui lòng liên hệ<br>
+        <a href="https://facebook.com/hungng.0503" target="_blank">Facebook Hùng</a> | Zalo: 0888941220
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const btn = document.getElementById("btnCheck");
+            if (!btn) return;
+
+            btn.addEventListener("click", () => {
+                const contact = document.getElementById("contactInput")?.value.trim();
+                const orderCode = document.getElementById("orderCode")?.textContent.trim();
+
+                if (!contact || !orderCode) {
+                    alert("Vui lòng nhập đầy đủ thông tin.");
+                    return;
+                }
+
+                fetch(`/Shop/GetOrder?contact=${encodeURIComponent(contact)}&orderCode=${encodeURIComponent(orderCode)}`)
+                    .then(res => {
+                        if (!res.ok) throw new Error("Không tìm thấy đơn");
+                        return res.json();
+                    })
+                    .then(order => {
+                        console.log("Đơn hàng tìm thấy:", order);
+                        alert(`Tình trạng đơn: ${order.status}`);
+                        // hoặc hiển thị chi tiết thẻ ở đây
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Không thể kiểm tra đơn hàng. Thử lại sau.");
+                    });
+            });
+        });
+    </script>
+
+    <!-- JS countdown -->
+    <script>
+        let time = 600;
+        function updateTimer() {
+            let minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            document.getElementById('timer').innerText =
+                (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            if (time > 0) time--;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+
+    <!-- Vendor JS -->
+    <script src="https://cdn.jsdelivr.net/npm/purecounterjs/dist/purecounter_vanilla.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="~/js/particles.min.js"></script>
+    <script src="~/js/mieow.js"></script>
+    <script src="~/js/main.js"></script>
+
+</body>
+</html>

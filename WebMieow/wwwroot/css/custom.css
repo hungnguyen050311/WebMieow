@@ -1,0 +1,14 @@
+.lg-title {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    color: #262626;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 5px 15px;
+    background: #ccc;
+}
+.lg-detailpage {
+    line-height: 30px;
+}

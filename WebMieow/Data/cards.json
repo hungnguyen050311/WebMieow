@@ -1,0 +1,15 @@
+[
+  {
+    "plan": "Steam",
+    "amount": "125.000đ",
+    "code": "STEAM100ABC",
+    "used": false
+  },
+  {
+    "plan": "Netflix",
+    "amount": "200K",
+    "code": "NETFLIX200XYZ",
+    "used": false
+  }
+]
+

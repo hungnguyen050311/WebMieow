@@ -1,0 +1,78 @@
+﻿@model List<WebMieow.Models.Order>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Quản lý đơn hàng</title>
+    <link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="~/img/yae.gif" type="image/png" />
+</head>
+<body class="p-4">
+    <div class="container">
+        <h2 class="mb-4">Danh sách đơn hàng</h2>
+
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-info">@TempData["Message"]</div>
+        }
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Người dùng</th>
+                    <th>Email/SDT</th>
+                    <th>Loại dịch vụ</th>
+                    <th>Mã đơn</th>
+                    <th>Trạng thái</th>
+                    <th>Mã thẻ</th>
+                    <th>Cập nhật</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <form asp-action="UpdateOrder" method="post">
+                    <tr>
+                        <td>@order.Username</td>
+                        <td>@order.Contact</td>
+                        <td>@order.Plan</td>
+                        <td>@order.OrderCode</td>
+
+                        <td>
+                            <select name="status" class="form-select form-select-sm">
+                                <option value="pending" selected="@(order.Status == "pending" ? "selected" : null)">Chờ</option>
+                                <option value="success" selected="@(order.Status == "success" ? "selected" : null)">Đã Duyệt</option>
+                            </select>
+                        </td>
+
+                        <td>
+                            @if (!string.IsNullOrEmpty(order.Card))
+                            {
+                                <!-- Nếu đã có card thì hiển thị readonly -->
+                                <input type="text" class="form-control form-control-sm text-success" name="card" value="@order.Card" readonly />
+                            }
+                            else
+                            {
+                                <!-- Nếu chưa có card thì hiển thị để admin gán -->
+                                <input type="text" class="form-control form-control-sm" name="card" placeholder="Nhập mã thẻ..." />
+                            }
+                        </td>
+
+                        <td>
+                            <input type="hidden" name="orderCode" value="@order.OrderCode" />
+                            <button type="submit" class="btn btn-sm btn-primary">Lưu</button>
+                        </td>
+                    </tr>
+                    </form>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,319 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+    ViewBag.Title = "Trang Chủ";
+}
+
+<script src="~/js/particles.min.js"></script>
+
+
+<div id="particles-js">
+    <canvas class="particles-js-canvas-el"></canvas>
+</div>
+
+<!-- Copy toàn bộ phần body trong <body> vào đây, trừ các <script> -->
+<div id="particles-js">
+    <canvas class="particles-js-canvas-el" width="1108" height="1586" style="width: 100%; height: 100%;"></canvas>
+</div>
+<div class="min-h-full flex-h-center page-bg" id="background_div">
+    <div class="background-overlay"></div>
+    <div class="mt-36 page-full-wrap relative">
+        <a href="index.html" target="_blank">
+            <img class="display-image m-auto" src="~/img/Xinh.jpg" alt="Mieow">
+        </a>
+        <h2 class="page-title page-text-color page-text-font mt-16 text-center">Mieow Admin</h2>
+        <div class="page-bioline text-fs-16 page-text-color page-text-font mt-8 ln-h-22 text-center blinking-text">
+            Info Name: Nguyễn Lâm Hùng
+        </div>
+        <div class="page-bioline text-fs-16 page-text-color page-text-font mt-8 ln-h-22 text-center">Chuyên coppy pase Code!</div>
+
+        <!-- ...existing code... -->
+        <div class="flex-both-center flex-wrap mt-16">
+            <select id="songSelector" class="glow-on-hover" style="margin-right: 10px;">
+                <option value="~/music/music11.mp3">FICTION BEAST</option>
+                <option value="~/music/music4.mp3">Hoa nở bên đường</option>
+                <option value="~/music/music2.mp3">Tình yêu có còn tồn tại</option>
+                <option value="~/music/music3.mp3">Đừng ai nhắc về cô ấy</option>
+                <option value="~/music/music5.mp3">Hãy trao cho anh</option>
+                <option value="~/music/music6.mp3">Không ai nói chia tay</option>
+                <option value="~/music/music7.mp3">1IN3 Sợ phải kết thúc</option>
+                <option value="~/music/music8.mp3">Mỹ nhân</option>
+                <option value="~/music/music9.mp3">Vô tình</option>
+                <option value="~/music/music12.mp3">Chỉ là anh đéo biết</option>
+                <!-- Thêm các bài hát khác tại đây -->
+            </select>
+            <audio id="myAudio">
+                <source id="audioSource" src="/music/music4.mp3" type="audio/mpeg">
+            </audio>
+            <button class="glow-on-hover" onclick="playAudio()" type="button">Play Music</button>
+            <button class="glow-on-hover" onclick="pauseAudio()" type="button">Stop Music</button>
+        </div>
+        <!-- ...existing code... -->
+        <script>
+            var audio = document.getElementById("myAudio");
+            var audioSource = document.getElementById("audioSource");
+            var songSelector = document.getElementById("songSelector");
+
+            function playAudio() {
+                audio.play();
+            }
+
+            function pauseAudio() {
+                audio.pause();
+            }
+
+            function adjustSelectWidth() {
+                var select = document.getElementById('songSelector');
+                var tmp = document.createElement('span');
+                tmp.style.visibility = 'hidden';
+                tmp.style.position = 'fixed';
+                tmp.style.font = window.getComputedStyle(select).font;
+                tmp.innerText = select.options[select.selectedIndex].text;
+                document.body.appendChild(tmp);
+                select.style.width = (tmp.offsetWidth + 70) + 'px'; // 70px cho mũi tên và padding
+                document.body.removeChild(tmp);
+            }
+
+            songSelector.addEventListener('change', function() {
+                audio.pause();
+                audioSource.src = this.value.replace('~', ''); // Đảm bảo đường dẫn đúng
+                audio.load();
+                audio.oncanplay = function() {
+                    audio.play();
+                };
+                adjustSelectWidth();
+            });
+
+            window.addEventListener('DOMContentLoaded', adjustSelectWidth);
+        </script>
+        <!-- ...existing code... -->
+
+        <div class="page-bioline text-fs-16 page-text-color page-text-font mt-8 ln-h-22 text-center donate" onclick="window.location.href='bank.html'">
+            Donate tùy tâm
+        </div>
+
+        
+    </div>
+</div>
+
+<!-- Ví dụ như ảnh, tên, info, player nhạc, donate, button,... -->
+
+<div class="mt-32">
+    <!-- <div class="login-btn-topright">
+
+        <a rel="noopener nofollow" class="page-item-each flex-both-center" href="/login.html" target="_blank">Đăng nhập / Đăng ký</a>
+    </div> -->
+
+    <div class="page-item-wrap relative">
+        <div class="page-item flex-both-center relative"></div>
+        <a rel="noopener nofollow" class="page-item-each flex-both-center" href="https://www.facebook.com/hungng.0503/" target="_blank">Facebook</a>
+    </div>
+
+    <div class="page-item-wrap relative">
+        <div class="page-item flex-both-center relative"></div>
+        <a rel="noopener nofollow" class="page-item-each flex-both-center" <a href="/Shop/Admin"" target="_blank">Admin Check</a>
+    </div>
+    
+    <div class="page-item-wrap relative">
+        <div class="page-item flex-both-center relative"></div>
+        <a rel="noopener nofollow" class="page-item-each flex-both-center" href="/Shop">ShopMieow</a>
+
+    </div>
+
+    <div class="page-item-wrap relative">
+        <div class="page-item flex-both-center relative"></div>
+        <a rel="noopener nofollow" class="page-item-each flex-both-center" href="https://hungnguyen050311.github.io/MieowFage/Proxy/index.html">List proxy live</a>
+    </div>
+
+    <div class="page-item-wrap relative">
+        <div class="page-item flex-both-center relative"></div>
+        <a rel="noopener nofollow" class="page-item-each flex-both-center" href="https://github.com/hungnguyen050311" target="_blank">Github</a>
+    </div>
+
+    <!-- <div class="page-item-wrap relative">
+        <div class="page-item flex-both-center relative"></div>
+        <a rel="noopener nofollow" class="page-item-each flex-both-center" href="https://hungnguyen050311.github.io/Web-Mieow/index.html" target="_blank">Web Game Demo</a>
+    </div> -->
+    <!-- <div class="page-item-wrap relative">
+        <div class="page-item flex-both-center relative"></div>
+        <a rel="noopener nofollow" class="page-item-each flex-both-center" href="https://www.evernote.com/shard/s521/sh/093688a2-7f71-e204-f139-c887172ac630/OdbhzMuMNVHiTEizWV8YFnhrNVfVZBHTEg54CyUMNwpwUeIof30OZcg9Eg" target="_blank">Source Game Share</a>
+    </div> -->
+
+    <div class="text-center">
+        <br>
+        <p style="font-size: 14px; color: gray; font-family: Arial;">© 2023 MieowHTML</p>
+    </div>
+</div>
+<!-- Nhớ sửa đường dẫn từ ./Css-Javascript/... => ~/css/... hoặc ~/js/... hoặc ~/images/... -->
+<script>
+    var audio = document.getElementById("myAudio");
+
+    function playAudio() {
+        audio.play();
+    }
+
+    function pauseAudio() {
+        audio.pause();
+    }
+
+    const colors = ['#000000', '#050209', '#0D0A16', '#261D3C', '#3A2652'];
+    const weights = [0.2578125, 0.2890625, 0.2578125, 0.12109375, 0.07421875];
+
+    function getRandomColor() {
+        const weightedColors = [];
+        for (let i = 0; i < colors.length; i++) {
+            const count = Math.floor(weights[i] * 100);
+            for (let j = 0; j < count; j++) {
+                weightedColors.push(colors[i]);
+            }
+        }
+        const randomIndex = Math.floor(Math.random() * weightedColors.length);
+        return weightedColors[randomIndex];
+    }
+
+    function setRandomBackgroundColor(className) {
+        const elements = document.getElementsByClassName(className);
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.backgroundColor = getRandomColor();
+        }
+    }
+
+    window.onload = function () {
+        setRandomBackgroundColor('colMatBen');
+    };
+</script>
+<script type="text/javascript" src="~/js/mieow.js"></script>
+<script type="text/javascript">
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onkeydown = function (e) {
+            if (
+      e.ctrlKey &&
+      ['c', 'v', 'u', 'F6'].includes(e.key?.toLowerCase() || e.code)
+    ) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+    document.onselectstart = function (e) {
+        e.preventDefault();
+    };
+</script>
+
+<!-- Thư viện particles.js -->
+<script src="~/js/particles.min.js"></script>
+
+<!-- Gọi particlesJS sau DOMContentLoaded -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 60,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: { value: "#ffffff" },
+                shape: {
+                    type: "circle", // Đổi về "circle" để tránh lỗi ảnh nếu bạn chưa có ảnh SVG
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    },
+                    image: {
+                        src: "img/github.svg", // Chỉ dùng khi type = "image"
+                        width: 100,
+                        height: 100
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 4,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: false,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    });
+</script>
+
+
+

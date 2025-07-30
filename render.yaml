@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: webmieow
+    env: docker
+    dockerfilePath: ./Dockerfile
+    buildCommand: dotnet restore && dotnet publish -c Release -o out
+    startCommand: dotnet WebMieow.dll
+    envVars:
+      - key: ConnectionStrings__DefaultConnection
+        value: Server=mysql-db:3306;Database=webmieowdb;User=root;Password=Gtw3gpHa8cBAl6ia
+
+  - type: pserv
+    name: mysql-db
+    env: docker
+    image: mysql:8.0
+    plan: starter
+    envVars:
+      - key: MYSQL_ROOT_PASSWORD
+        value: Gtw3gpHa8cBAl6ia
+      - key: MYSQL_DATABASE
+        value: webmieowdb
+    disk:
+      name: mysql-data
+      mountPath: /var/lib/mysql
+      sizeGB: 1

@@ -1,0 +1,22 @@
+﻿@media (max-width: 991px) {
+    .navbar ul {
+        display: none;
+    }
+
+    .navbar.navbar-mobile ul {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 10px 20px;
+        z-index: 999;
+    }
+
+    .mobile-nav-toggle {
+        font-size: 28px;
+        cursor: pointer;
+        color: #16507b;
+    }
+}

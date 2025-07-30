@@ -1,0 +1,150 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ASP.Net\\WebMieow\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|d:\\asp.net\\webmieow\\webmieow\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|solutionrelative:webmieow\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|d:\\asp.net\\webmieow\\webmieow\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|solutionrelative:webmieow\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|d:\\asp.net\\webmieow\\webmieow\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|solutionrelative:webmieow\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|d:\\asp.net\\webmieow\\webmieow\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|solutionrelative:webmieow\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|d:\\asp.net\\webmieow\\webmieow\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|solutionrelative:webmieow\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|d:\\asp.net\\webmieow\\webmieow\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|solutionrelative:webmieow\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|d:\\asp.net\\webmieow\\webmieow\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|solutionrelative:webmieow\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|d:\\asp.net\\webmieow\\webmieow\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48BAB8D8-588E-45B7-9E05-D1200B98DC91}|WebMieow\\WebMieow.csproj|solutionrelative:webmieow\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\ASP.Net\\WebMieow\\WebMieow\\Dockerfile",
+              "RelativeDocumentMoniker": "WebMieow\\Dockerfile",
+              "ToolTip": "D:\\ASP.Net\\WebMieow\\WebMieow\\Dockerfile",
+              "RelativeToolTip": "WebMieow\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-07-30T07:26:58.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\ASP.Net\\WebMieow\\WebMieow\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "WebMieow\\Models\\Account.cs",
+              "ToolTip": "D:\\ASP.Net\\WebMieow\\WebMieow\\Models\\Account.cs",
+              "RelativeToolTip": "WebMieow\\Models\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T13:26:18.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\ASP.Net\\WebMieow\\WebMieow\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "WebMieow\\Models\\Order.cs",
+              "ToolTip": "D:\\ASP.Net\\WebMieow\\WebMieow\\Models\\Order.cs",
+              "RelativeToolTip": "WebMieow\\Models\\Order.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwBUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T13:30:29.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\ASP.Net\\WebMieow\\WebMieow\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "WebMieow\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\ASP.Net\\WebMieow\\WebMieow\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "WebMieow\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA1wBsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T13:28:36.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ASP.Net\\WebMieow\\WebMieow\\appsettings.json",
+              "RelativeDocumentMoniker": "WebMieow\\appsettings.json",
+              "ToolTip": "D:\\ASP.Net\\WebMieow\\WebMieow\\appsettings.json",
+              "RelativeToolTip": "WebMieow\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-29T08:05:25.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\ASP.Net\\WebMieow\\WebMieow\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "WebMieow\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\ASP.Net\\WebMieow\\WebMieow\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "WebMieow\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T07:58:59.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\ASP.Net\\WebMieow\\WebMieow\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "WebMieow\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\ASP.Net\\WebMieow\\WebMieow\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "WebMieow\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAYwD0AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T07:58:47.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ASP.Net\\WebMieow\\WebMieow\\Program.cs",
+              "RelativeDocumentMoniker": "WebMieow\\Program.cs",
+              "ToolTip": "D:\\ASP.Net\\WebMieow\\WebMieow\\Program.cs",
+              "RelativeToolTip": "WebMieow\\Program.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAjwDgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T07:58:41.684Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

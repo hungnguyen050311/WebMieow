@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+    ViewData["Title"] = "Đăng Nhập";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng Nhập - MieowShop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="p-4 bg-white rounded shadow" style="width: 360px;">
+            <h2 class="text-center mb-4">Đăng Nhập</h2>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger text-center">@ViewBag.Error</div>
+            }
+
+            <form method="post" action="/Account/Login">
+                <div class="mb-3">
+                    <input type="text" name="username" class="form-control" placeholder="Tên đăng nhập" required />
+                </div>
+
+                <div class="mb-3">
+                    <input type="password" name="password" class="form-control" placeholder="Mật khẩu" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Đăng Nhập</button>
+            </form>
+
+            <div class="text-center mt-3">
+                <a href="/Account/ForgotPassword">Quên mật khẩu?</a><br />
+                <a href="/Account/Register">Chưa có tài khoản? Đăng ký</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

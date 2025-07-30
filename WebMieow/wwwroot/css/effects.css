@@ -1,0 +1,53 @@
+.blinking-text {
+    animation: colorChange 1s infinite;
+}
+
+.glow-on-hover {
+    animation: colorChange 1s infinite;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+@keyframes colorChange {
+    0% {
+        color: red;
+    }
+
+    25% {
+        color: blue;
+    }
+
+    50% {
+        color: purple;
+    }
+
+    75% {
+        color: pink;
+    }
+
+    100% {
+        color: green;
+    }
+}
+
+.donate {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        color: blue;
+    }
+
+    50% {
+        color: cyan;
+    }
+}
