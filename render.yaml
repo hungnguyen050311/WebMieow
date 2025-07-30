@@ -7,19 +7,18 @@ services:
     startCommand: dotnet WebMieow.dll
     envVars:
       - key: ConnectionStrings__DefaultConnection
-        value: Server=mysql-db:3306;Database=webmieowdb;User=root;Password=Gtw3gpHa8cBAI6ia
+        value: Server=mysql-db:3306;Database=webmieowdb;User=root;Password=Gtw3gpHa8cBAiGia;
 
-  - type: pserv
+  - type: image
     name: mysql-db
-    env: image
     image: mysql:8.0
     plan: starter
     envVars:
       - key: MYSQL_ROOT_PASSWORD
-        value: Gtw3gpHa8cBAI6ia
+        value: Gtw3gpHa8cBAiGia
       - key: MYSQL_DATABASE
         value: webmieowdb
     disk:
       name: mysql-data
       mountPath: /var/lib/mysql
-      sizeGb: 1
+      sizeGB: 1
