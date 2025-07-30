@@ -8,7 +8,6 @@ services:
     envVars:
       - key: ConnectionStrings__DefaultConnection
         value: Server=mysql-db:3306;Database=webmieowdb;User=root;Password=Gtw3gpHa8cBAiGia;
-
   - type: pserv
     name: mysql-db
     env: docker
