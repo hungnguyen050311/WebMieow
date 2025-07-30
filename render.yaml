@@ -9,7 +9,7 @@ services:
       - mysql-db
     envVars:
       - key: ConnectionStrings__DefaultConnection
-        value: Server=mysql-db:3306;Database=webmieowdb;User=root;Password=Gtw3gpHa8cBAiGia;
+        value: "Server=mysql-db;Port=3306;Database=webmieowdb;User=root;Password=Gtw3gpHa8cBAiGia;"
 
 
   - type: pserv
