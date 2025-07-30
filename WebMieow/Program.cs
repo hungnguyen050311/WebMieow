@@ -50,7 +50,6 @@ using Microsoft.EntityFrameworkCore;
 using WebMieow.Data; // nơi chứa AppDbContext hoặc ApplicationDbContext
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Đăng ký AppDbContext và cấu hình MySQL
@@ -66,6 +65,15 @@ builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
+
+
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.EnsureCreated(); // tạo bảng nếu chưa có
+}
+
 
 // Cấu hình pipeline
 if (!app.Environment.IsDevelopment())
