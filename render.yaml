@@ -13,6 +13,7 @@ services:
     name: mysql-db
     runtime: docker    # ⚠️ Thêm dòng này để được phép dùng image
     image: mysql:8.0
+
     plan: starter
     envVars:
       - key: MYSQL_ROOT_PASSWORD
