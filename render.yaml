@@ -7,17 +7,16 @@ services:
     startCommand: dotnet WebMieow.dll
     envVars:
       - key: ConnectionStrings__DefaultConnection
-        value: Server=mysql-db:3306;Database=webmieowdb;User=root;Password=Gtw3gPHA8C8Al6ia
+        value: Server=mysql-db:3306;Database=webmieowdb;User=root;Password=Gtw3gpHa8cBAl6ia
 
   - type: pserv
     name: mysql-db
-    env: docker
+    runtime: docker    # ⚠️ Thêm dòng này để được phép dùng image
     image: mysql:8.0
-  
     plan: starter
     envVars:
       - key: MYSQL_ROOT_PASSWORD
-        value: Gtw3gPHA8C8Al6ia
+        value: Gtw3gpHa8cBAl6ia
       - key: MYSQL_DATABASE
         value: webmieowdb
     disk:
