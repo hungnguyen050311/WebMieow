@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebMieow.Models
@@ -16,6 +16,8 @@ namespace WebMieow.Models
         public string Phone { get; set; }
         public string FullName { get; set; }
         public string Address { get; set; }
+
+        public int Role { get; set; } = 0; // 0: User, 1: Admin
 
         public ICollection<Order> Orders { get; set; }
     }
