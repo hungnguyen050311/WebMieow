@@ -1,4 +1,4 @@
-﻿@model WebMieow.Models.ProfileViewModel
+@model WebMieow.Models.ProfileViewModel
 @* Xoá các dòng dưới nếu không dùng *@
 @* @Model.Account.Username
 @Model.Account.FullName
@@ -46,6 +46,12 @@
                                 <td>@Model.Address</td>
                             </tr> *@
                         </table>
+                        @if (Context.Session.GetInt32("IsAdmin") == 1)
+                        {
+                            <div class="mt-3">
+                                <a href="/Shop/Admin" class="btn btn-warning">Quản lý đơn</a>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
