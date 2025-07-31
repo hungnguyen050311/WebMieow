@@ -1,4 +1,4 @@
-﻿@model List<WebMieow.Models.Order>
+@model List<WebMieow.Models.Order>
 
 @{
     Layout = null;
@@ -36,15 +36,18 @@
             <tbody>
                 @foreach (var order in Model)
                 {
-                    <form asp-action="UpdateOrder" method="post">
                     <tr>
+                        <form asp-controller="Shop" asp-action="UpdateOrDeleteOrder" method="post" onsubmit="return confirm('Bạn chắc chắn với thao tác này?');">
+
+                            <input type="hidden" name="orderCode" value="@order.OrderCode" />
+
                         <td>@order.Username</td>
                         <td>@order.Contact</td>
                         <td>@order.Plan</td>
                         <td>@order.OrderCode</td>
 
                         <td>
-                            <select name="status" class="form-select form-select-sm">
+                            <select name="status" class="form-select form-select-sm w-100">
                                 <option value="pending" selected="@(order.Status == "pending" ? "selected" : null)">Chờ</option>
                                 <option value="success" selected="@(order.Status == "success" ? "selected" : null)">Đã Duyệt</option>
                             </select>
@@ -53,24 +56,23 @@
                         <td>
                             @if (!string.IsNullOrEmpty(order.Card))
                             {
-                                <!-- Nếu đã có card thì hiển thị readonly -->
                                 <input type="text" class="form-control form-control-sm text-success" name="card" value="@order.Card" readonly />
                             }
                             else
                             {
-                                <!-- Nếu chưa có card thì hiển thị để admin gán -->
                                 <input type="text" class="form-control form-control-sm" name="card" placeholder="Nhập mã thẻ..." />
                             }
                         </td>
 
                         <td>
-                            <input type="hidden" name="orderCode" value="@order.OrderCode" />
-                            <button type="submit" class="btn btn-sm btn-primary">Lưu</button>
+                            <div class="d-flex gap-1">
+                                <button type="submit" name="action" value="update" class="btn btn-sm btn-primary">Lưu</button>
+                                <button type="submit" name="action" value="delete" class="btn btn-sm btn-danger">Xoá</button>
+                            </div>
                         </td>
+                        </form>
                     </tr>
-                    </form>
                 }
-
             </tbody>
         </table>
     </div>
