@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using WebMieow.Models;
 using System;
 using System.Linq;
@@ -182,6 +182,35 @@ namespace WebMieow.Controllers
                 return View("PaymentPending", order); // thông báo đang chờ admin
             }
         }
+
+        [HttpPost]
+        public IActionResult UpdateOrDeleteOrder(string orderCode, string status, string card, string action)
+        {
+            var order = _context.Orders.FirstOrDefault(o => o.OrderCode == orderCode);
+            if (order == null)
+            {
+                TempData["Message"] = "Không tìm thấy đơn hàng.";
+                return RedirectToAction("Admin", "Shop");
+            }
+
+            if (action == "update")
+            {
+                order.Status = status;
+                if (!string.IsNullOrEmpty(card)) order.Card = card;
+                _context.SaveChanges();
+                TempData["Message"] = "Đã cập nhật đơn.";
+            }
+            else if (action == "delete")
+            {
+                _context.Orders.Remove(order);
+                _context.SaveChanges();
+                TempData["Message"] = "Đã xóa đơn.";
+            }
+
+            return RedirectToAction("Admin", "Shop");
+        }
+
+
 
     }
 }
