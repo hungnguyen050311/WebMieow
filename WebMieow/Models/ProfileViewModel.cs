@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebMieow.Models
@@ -15,6 +15,9 @@ namespace WebMieow.Models
         public string Phone { get; set; }
         public string FullName { get; set; }
         public string Address { get; set; }
+
+        public int Role { get; set; } // ➕ thêm Role vào ViewModel
+
 
         // Danh sách đơn hàng
         public List<Order> Orders { get; set; }
