@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using WebMieow.Data;
@@ -82,9 +82,12 @@ namespace WebMieow.Controllers
 
             var jsonUser = JsonSerializer.Serialize(user);
             HttpContext.Session.SetString("User", jsonUser);
+            HttpContext.Session.SetInt32("IsAdmin", user.Role); // ➕ Thêm dòng này
+
             TempData["Success"] = "Đăng nhập thành công!";
             return RedirectToAction("Index", "Shop");
         }
+
 
         [HttpGet]
         public IActionResult ForgotPassword()
