@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using WebMieow.Models;
 // Use an alias to resolve ambiguity
@@ -45,7 +45,8 @@ namespace WebMieow.Controllers
                 Phone = user.Phone,
                 FullName = user.FullName,
                 Address = user.Address,
-                Orders = userOrders
+                Orders = userOrders,
+                Role = user.Role
             };
 
             return View(profileVM);
