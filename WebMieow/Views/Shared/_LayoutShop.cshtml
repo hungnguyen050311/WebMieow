@@ -13,6 +13,8 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="~/img/yae.gif" type="image/png" />
 
+
+
     <!-- SEO -->
     <meta name="description" content="Shop bán thẻ Garena, Zing, Vcoin, Steam Wallet... Mã thẻ uy tín - giao nhanh - chiết khấu tốt.">
     <meta name="keywords" content="mua thẻ game, thẻ garena, thẻ zing, steam wallet, shop uy tín, giá rẻ">
@@ -33,7 +35,6 @@
 
     <!-- Vendor CSS -->
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
     <link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
     <link href="~/vendor/remixicon/remixicon.css" rel="stylesheet" />
@@ -44,29 +45,7 @@
     <link href="~/css/custom.css" rel="stylesheet" />
     <link href="~/css/responsive.css" rel="stylesheet" />
 
-    <!-- Fix menu mobile -->
-    <style>
-        .navbar ul {
-            display: flex;
-        }
-
-        @@media (max-width: 991px) {
-            .navbar ul {
-                display: none;
-            }
-
-            .navbar.navbar-mobile ul {
-                display: block;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: white;
-                padding: 10px 20px;
-                z-index: 999;
-            }
-        }
-    </style>
+    
 
 
     @RenderSection("Styles", required: false)
@@ -76,18 +55,23 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
+            <!-- Thêm logo hoặc tên MieowShop -->
+            <a href="/Shop" class="logo" style="font-weight: bold; font-size: 22px; color: #000; text-decoration: none;">
+                🔹MieowShop ⌂🐱
+            </a>
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="/Shop#hero">Trang chủ</a></li>
-                    <li><a class="nav-link scrollto" href="/Shop#about">Dịch vụ</a></li>
-                    <li><a class="nav-link scrollto" href="/Shop#pricing">Bảng giá</a></li>
-                    <li><a class="nav-link scrollto" href="/Shop#contact">Liên hệ</a></li>
-                    <li><a class="nav-link scrollto" href="/Shop#list">Danh sách thẻ</a></li>
+                    <li><a class="nav-link scrollto" href="/Shop#hero">🏠 Trang chủ</a></li>
+                    <li><a class="nav-link scrollto" href="/Shop#about">🛍️ Dịch vụ</a></li>
+                    <li><a class="nav-link scrollto" href="/Shop#pricing">🪦 Bảng giá</a></li>
+                    <li><a class="nav-link scrollto" href="/Shop#contact">☎️ Liên hệ</a></li>
+                    <li><a class="nav-link scrollto" href="/Shop#list">📃 Danh sách thẻ</a></li>
                 </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
+                <i class="bi bi-x mobile-nav-toggle"></i>
             </nav>
 
+            @* Phần xử lý đăng nhập *@
             @{
                 var jsonUser = HttpContextAccessor.HttpContext.Session.GetString("User");
                 Account currentUser = null;
@@ -97,7 +81,6 @@
                     currentUser = System.Text.Json.JsonSerializer.Deserialize<Account>(jsonUser);
                 }
             }
-
 
             <div>
                 @if (currentUser != null)
@@ -111,10 +94,9 @@
                     <a href="/Account/Register" class="btn btn-outline-primary btn-sm">Đăng Ký</a>
                 }
             </div>
-
-
         </div>
     </header>
+
     <!-- End Header -->
 
     <main style="margin-top: 80px;">
@@ -145,35 +127,31 @@
     <script src="~/vendor/php-email-form/validate.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileToggle = document.querySelector('.mobile-nav-toggle');
-            const navbar = document.querySelector('#navbar');
+    
 
-            mobileToggle.addEventListener('click', function () {
-                navbar.classList.toggle('navbar-mobile');
-                this.classList.toggle('bi-list');
-                this.classList.toggle('bi-x');
-            });
 
-            // Optional: close when clicking a nav link (mobile)
-            document.querySelectorAll('#navbar .nav-link').forEach(function (el) {
-                el.addEventListener('click', function () {
-                    if (navbar.classList.contains('navbar-mobile')) {
-                        navbar.classList.remove('navbar-mobile');
-                        mobileToggle.classList.toggle('bi-list');
-                        mobileToggle.classList.toggle('bi-x');
-                    }
-                });
-            });
-        });
-    </script>
 
-    <!-- Main JS -->
-    <script src="~/js/main.js"></script>
+    
+    
 
     <!-- View-specific Scripts -->
     @RenderSection("Scripts", required: false)
+    <!-- Main JS -->
+    <script src="~/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.querySelector('.mobile-nav-toggle');
+            const navbar = document.querySelector('.navbar');
+
+            if (toggle && navbar) {
+                toggle.addEventListener('click', function () {
+                    navbar.classList.toggle('navbar-mobile');
+                });
+            }
+        });
+    </script>
+
 
 </body>
 </html>
