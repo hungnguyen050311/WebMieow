@@ -1,4 +1,4 @@
-﻿@{
+@{
     Layout = "~/Views/Shared/_LayoutShop.cshtml";
     ViewData["Title"] = "Đăng Ký";
 }
@@ -64,19 +64,19 @@
             }
 
             <form method="post" action="/Account/Register">
-                <input type="text" name="username" placeholder="Tên đăng nhập" class="form-control mb-3" required />
+                <input type="text" name="username" placeholder="💩 Tên đăng nhập" class="form-control mb-3" required />
 
-                <input type="password" name="password" placeholder="Mật khẩu" class="form-control mb-3" required />
+                <input type="password" name="password" placeholder="🔑 Mật khẩu" class="form-control mb-3" required />
 
-                <input type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu" class="form-control mb-3" required />
+                <input type="password" name="confirmPassword" placeholder="🔑 Nhập lại mật khẩu" class="form-control mb-3" required />
 
 
-                <input type="email" name="email" placeholder="Email" class="form-control mb-3" required />
+                <input type="email" name="email" placeholder="🗨️ Email" class="form-control mb-3" required />
 
-                <input type="tel" name="phone" placeholder="Số điện thoại" class="form-control mb-3"
+                <input type="tel" name="phone" placeholder="☎️ Số điện thoại" class="form-control mb-3"
                        pattern="[0-9]{9,11}"
                        title="Nhập số điện thoại hợp lệ (9-11 số)" required />
-                <input type="text" name="fullName" placeholder="Họ và tên" class="form-control mb-3" required />
+                <input type="text" name="fullName" placeholder="📝 Họ và tên" class="form-control mb-3" required />
 
                 <button type="submit" class="btn btn-success w-100">Đăng Ký</button>
             </form>
@@ -86,21 +86,6 @@
             </div>
         </div>
     </div>
-    
-<script>
-  // Chặn chuột phải
-  document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // Chặn F12 và Ctrl+Shift+I với thông báo
-  document.addEventListener('keydown', function (e) {
-    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-      e.preventDefault();
-      alert("Bấm F12 làm gì, định copy à, có làm mới có ăn nha.");
-    }
-  });
-</script>
-
-
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
