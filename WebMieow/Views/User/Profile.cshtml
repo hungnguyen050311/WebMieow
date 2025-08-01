@@ -106,4 +106,16 @@
         </div>
     </div>
 </section>
+<script>
+  // Chặn chuột phải
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Chặn F12 và Ctrl+Shift+I với thông báo
+  document.addEventListener('keydown', function (e) {
+    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+      e.preventDefault();
+      alert("Bấm F12 làm gì, định copy à, có làm mới có ăn nha.");
+    }
+  });
+</script>
 
