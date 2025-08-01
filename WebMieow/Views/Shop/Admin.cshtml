@@ -14,7 +14,10 @@
 </head>
 <body class="p-4">
     <div class="container">
-        <h2 class="mb-4">Danh sách đơn hàng</h2>
+        <a href="/Shop" class="logo" style="font-weight: bold; font-size: 22px; color: #000; text-decoration: none;">
+            ฿ Danh Sách Đơn Hàng ฿
+        </a>
+
 
         @if (TempData["Message"] != null)
         {
@@ -66,8 +69,8 @@
 
                         <td>
                             <div class="d-flex gap-1">
-                                <button type="submit" name="action" value="update" class="btn btn-sm btn-primary">Lưu</button>
-                                <button type="submit" name="action" value="delete" class="btn btn-sm btn-danger">Xoá</button>
+                                <button type="submit" name="action" value="update" class="btn btn-sm btn-primary">Lưu 💾</button>
+                                <button type="submit" name="action" value="delete" class="btn btn-sm btn-danger">Xoá 🗑️</button>
                             </div>
                         </td>
                         </form>
@@ -76,17 +79,5 @@
             </tbody>
         </table>
     </div>
-<script>
-  // Chặn chuột phải
-  document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // Chặn F12 và Ctrl+Shift+I với thông báo
-  document.addEventListener('keydown', function (e) {
-    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-      e.preventDefault();
-      alert("Bấm F12 làm gì, định copy à, có làm mới có ăn nha.");
-    }
-  });
-</script>
 </body>
 </html>
