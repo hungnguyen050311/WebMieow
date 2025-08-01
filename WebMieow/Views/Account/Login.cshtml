@@ -1,4 +1,4 @@
-﻿@{
+@{
     Layout = "~/Views/Shared/_LayoutShop.cshtml";
     ViewData["Title"] = "Đăng Nhập";
 }
@@ -25,11 +25,11 @@
 
             <form method="post" action="/Account/Login">
                 <div class="mb-3">
-                    <input type="text" name="username" class="form-control" placeholder="Tên đăng nhập" required />
+                    <input type="text" name="username" class="form-control" placeholder="💩 Tên đăng nhập" required />
                 </div>
 
                 <div class="mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="Mật khẩu" required />
+                    <input type="password" name="password" class="form-control" placeholder="🔑 Mật khẩu" required />
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Đăng Nhập</button>
@@ -41,22 +41,6 @@
             </div>
         </div>
     </div>
-
-
-<script>
-  // Chặn chuột phải
-  document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // Chặn F12 và Ctrl+Shift+I với thông báo
-  document.addEventListener('keydown', function (e) {
-    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-      e.preventDefault();
-      alert("Bấm F12 làm gì, định copy à, có làm mới có ăn nha.");
-    }
-  });
-</script>
-
-
 
     <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
