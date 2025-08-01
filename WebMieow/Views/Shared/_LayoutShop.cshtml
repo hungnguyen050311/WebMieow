@@ -49,6 +49,46 @@
 
 
     @RenderSection("Styles", required: false)
+
+<style>
+    body.dark-mode {
+        background-color: #121212;
+        color: #f5f5f5;
+    }
+
+    body.dark-mode a {
+        color: #90caf9;
+    }
+
+    body.dark-mode .navbar,
+    body.dark-mode .shadow-sm,
+    body.dark-mode .bg-white {
+        background-color: #1e1e1e !important;
+        color: #f5f5f5 !important;
+    }
+
+    body.dark-mode .btn {
+        border-color: #444;
+        color: #fff;
+    }
+
+    body.dark-mode .btn-primary {
+        background-color: #3f51b5;
+        border-color: #3f51b5;
+    }
+
+    body.dark-mode .btn-outline-primary {
+        border-color: #90caf9;
+        color: #90caf9;
+    }
+
+    body.dark-mode .form-control {
+        background-color: #2a2a2a;
+        color: #f5f5f5;
+        border-color: #444;
+    }
+</style>
+
 </head>
 <body>
 
@@ -153,6 +193,25 @@
         });
     </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const body = document.getElementById("mainBody");
+        const toggleBtn = document.getElementById("toggleTheme");
+
+        // Áp dụng lại nếu có localStorage
+        if (localStorage.getItem("theme") === "dark") {
+            body.classList.add("dark-mode");
+            toggleBtn.textContent = "☀️";
+        }
+
+        toggleBtn.addEventListener("click", function () {
+            body.classList.toggle("dark-mode");
+            const isDark = body.classList.contains("dark-mode");
+            toggleBtn.textContent = isDark ? "☀️" : "🌙";
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+    });
+</script>
 
 </body>
 </html>
