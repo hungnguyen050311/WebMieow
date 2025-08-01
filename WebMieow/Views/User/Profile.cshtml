@@ -21,7 +21,7 @@
             <div class="col-lg-5 mb-4">
                 <div class="card shadow-sm border-0">
                     <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Thông tin cá nhân</h5>
+                        <h5 class="mb-0">🤓 Thông tin cá nhân</h5>
                     </div>
                     <div class="card-body">
                         <table class="table table-borderless mb-0">
@@ -52,7 +52,7 @@
                                 <a href="/Shop/Admin" class="btn btn-warning">Quản lý đơn</a>
                             </div>
                             <div class="mt-3">
-                                <a href="/Home/Index" class="btn btn-warning">Về Home</a>
+                                <a href="/Home/Index" class="btn btn-warning">⌂</a>
                             </div>
                         }
                     </div>
@@ -63,7 +63,7 @@
             <div class="col-lg-7">
                 <div class="card shadow-sm border-0">
                     <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">Lịch sử đơn hàng</h5>
+                        <h5 class="mb-0">🕑 Lịch sử đơn hàng</h5>
                     </div>
                     <div class="card-body">
                         @if (Model.Orders != null && Model.Orders.Any())
@@ -106,16 +106,4 @@
         </div>
     </div>
 </section>
-<script>
-  // Chặn chuột phải
-  document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // Chặn F12 và Ctrl+Shift+I với thông báo
-  document.addEventListener('keydown', function (e) {
-    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-      e.preventDefault();
-      alert("Bấm F12 làm gì, định copy à, có làm mới có ăn nha.");
-    }
-  });
-</script>
 
