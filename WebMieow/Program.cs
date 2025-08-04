@@ -52,6 +52,9 @@ using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ✅ Thêm dòng này để app lắng nghe đúng cổng Render yêu cầu (8080)
+builder.WebHost.UseUrls("http://0.0.0.0:8080");
+
 // Đăng ký AppDbContext và cấu hình MySQL
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(
@@ -66,14 +69,12 @@ builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
-
-
+// ✅ Tạo database nếu chưa có
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     db.Database.EnsureCreated(); // tạo bảng nếu chưa có
 }
-
 
 // Cấu hình pipeline
 if (!app.Environment.IsDevelopment())
